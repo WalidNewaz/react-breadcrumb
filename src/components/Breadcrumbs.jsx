@@ -1,18 +1,18 @@
 import { Link, useMatches } from "react-router-dom";
 
-import './breadcrumbs.css';
+import "./breadcrumbs.css";
 
 export default function Breadcrumbs() {
   const matches = useMatches();
-  console.log("matches", matches);
+  // console.log("matches", matches);
+  const filteredMatches = matches.filter((match) => match?.handle?.breadcrumb);
   return (
     <nav aria-label="breadcrumb" id="breadcrumb">
       <ol>
-        {matches.map((match, index) => {
-          // console.log("match", match);
+        {filteredMatches.map((match, index) => {
           return (
             <li key={index}>
-              {index < matches.length - 1 ? (
+              {index < filteredMatches.length - 1 ? (
                 <Link to={match.pathname}>{match?.handle?.breadcrumb}</Link>
               ) : (
                 <span>{match?.handle?.breadcrumb}</span>
