@@ -9,10 +9,7 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <RouterProvider router={router}>
-      {/* <Breadcrumbs /> */}
-      {/* Other components */}
-    </RouterProvider>
+    <RouterProvider router={router} />
   )
 }
 
